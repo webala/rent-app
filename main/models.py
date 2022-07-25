@@ -12,6 +12,9 @@ class House(models.Model):
     tenant = models.ForeignKey(Tenant, on_delete=models.CASCADE, null=True, blank=True)
     rent = models.IntegerField()
 
+    def __repr__(self) -> str:
+        return str(self.number)
+
 class RentRecord(models.Model):
     house = models.ForeignKey(House, on_delete=models.CASCADE)
     amount_paid = models.IntegerField()
