@@ -7,7 +7,7 @@ class CreateHouse(forms.ModelForm):
         fields = ['number', 'tenant', 'rent']
 
 
-class CreateTenants(forms.ModelForm):
+class CreateTenant(forms.ModelForm):
     class Meta:
         model = Tenant
         fields = ['name', 'email', 'phone_number']

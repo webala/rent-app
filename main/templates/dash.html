@@ -2,7 +2,27 @@
 
 
 {% block content %}
-        <h1>Hello mf</h1>
-<a href="/dash/house/create">Add house</a>
+
+<div class="p-2">
+
+    <nav class="flex justify-between items-center">
+        <div>
+        <h1 class="text-2xl">Rent</h1> 
+        </div>
+        <div class="invisible nav-options sm:visible">
+            <a href="/dash/house/create">Add house</a>
+        </div>
+    </nav>
+
+    <div class="grid grid-cols-2 gap-10 houses sm:flex sm:flex-wrap sm:flex-row">
+        {% for house in houses %}
+            <div class="rounded-lg bg-slate-800 w-3/5 flex flex-col items-center justify-center group house cursor-pointer">
+                <i class="uil uil-home group-hover:animate-bounce"></i>
+                <p>{{house.number}}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+</div>
 
 {% endblock %}
