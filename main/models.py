@@ -7,12 +7,16 @@ class Tenant(models.Model):
     email = models.EmailField()
     phone_number = models.CharField(max_length=20)
 
+
+    def __str__(self) -> str:
+        return str(self.name)
+
 class House(models.Model):
     number = models.IntegerField()
     tenant = models.ForeignKey(Tenant, on_delete=models.CASCADE, null=True, blank=True)
     rent = models.IntegerField()
 
-    def __repr__(self) -> str:
+    def __str__(self) -> str:
         return str(self.number)
 
 class RentRecord(models.Model):
@@ -20,3 +24,4 @@ class RentRecord(models.Model):
     amount_paid = models.IntegerField()
     payment_date = models.DateTimeField(auto_now_add=True)
     balance = models.IntegerField()
+    confirmatin_code = models.CharField(max_length=50)

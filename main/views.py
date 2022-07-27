@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .forms import CreateHouse, CreateTenant
+from .forms import CreateHouse, CreateRentRecord, CreateTenant
 from .models import House
 
 # Create your views here.
@@ -41,4 +41,22 @@ def create_tenant(request):
     return render(request, 'create_tenant.html', context)
 
 
+def house_view(request, house_id):
+    house = House.objects.get(id=house_id)
+    edit_house_form = CreateHouse(instance=house)
+    create_rent_record_form = CreateRentRecord(request.POST or None)
 
+    if request.method == 'POST':
+        edit_house_form = CreateHouse(request.POST)
+        if edit_house_form.is_valid():
+            edit_house_form.save()
+
+        if create_rent_record_form.is_valid():
+            obj = create_rent_record_form.save(commit=False)
+
+    context = {
+        'house': house,
+        'edit_house_form': edit_house_form,
+        'create_rent_record_form': create_rent_record_form
+    }
+    return render(request, 'house.html', context)

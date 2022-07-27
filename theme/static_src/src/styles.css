@@ -1,13 +1,32 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
 
 
 * {
     font-size: 25px;
+    color: white;
+    font-family: 'Lato', sans-serif;
 }
 
 .houses .house {
     height: 100px;
 }
+
+.field input, .field select {
+    height: 1.7em;
+    border: 1px solid black;
+    border-radius: 10px;
+    color: black;
+}
+
+.field select {
+    height: fit-content;
+}
+
+/* .house .edit button {
+    transition: 0.3s ease;
+} */
+

@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="house flex flex-col items-center">
+    <div class="detail flex flex-col items-center sm:flex-row sm:justify-evenly w-full my-10">
+        <h1>House No.: {{house.number}}</h1>
+        <p>Rent: {{house.rent}}</p>
+        {% if house.tenant %}
+            <p>{{house.tenant}}</p>
+        {% endif %}
+    </div>
+    <div class="edit bg-slate-900 rounded-lg p-2">
+        <h1>Change house Info</h1>
+        <form action="#" method="POST">
+            {% csrf_token %}
+        
+            <div class="xl:flex xl:flex-row">
+                {% for field in edit_house_form %}
+                <div class="field flex flex-col m-3">
+                    {{ field.errors }}
+                    {{ field.label_tag }} {{ field }}
+                    {% if field.help_text %}
+                    <p class="help">{{ field.help_text|safe }}</p>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+            <button class="bg-slate-800 my-5 mx-3 p-2 rounded-lg hover:scale-110 transition ease-in duration-200" type="submit">Edit House Information</button>
+        </form>
+    </div>
+    <div class="rent-records mt-16">
+        <div class="create bg-slate-900 rounded-lg p-2">
+            <h1>Create Rent Record</h1>
+            <form action="#" method="POST">
+                {% csrf_token %}
+            
+                <div class="xl:flex xl:flex-row">
+                    {% for field in create_rent_record_form %}
+                    <div class="field flex flex-col m-3">
+                        {{ field.errors }}
+                        {{ field.label_tag }} {{ field }}
+                        {% if field.help_text %}
+                        <p class="help">{{ field.help_text|safe }}</p>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+                <button class="bg-slate-800 my-5 mx-3 p-2 rounded-lg hover:scale-110 transition ease-in duration-200"
+                    type="submit">Create Rent Record</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

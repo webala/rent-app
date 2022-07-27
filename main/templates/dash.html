@@ -14,12 +14,14 @@
         </div>
     </nav>
 
-    <div class="grid grid-cols-2 gap-10 houses sm:flex sm:flex-wrap sm:flex-row">
+    <div class="grid grid-cols-2 gap-10 houses sm:flex sm:flex-wrap sm:flex-row w-full">
         {% for house in houses %}
-            <div class="rounded-lg bg-slate-800 w-3/5 flex flex-col items-center justify-center group house cursor-pointer">
+        <a href="/dash/house/{{house.id}}" class="w-5/6 sm:w-1/4">
+            <div class="rounded-lg bg-slate-800 flex flex-col items-center justify-center group house cursor-pointer">
                 <i class="uil uil-home group-hover:animate-bounce"></i>
                 <p>{{house.number}}</p>
             </div>
+        </a>
         {% endfor %}
     </div>
 
