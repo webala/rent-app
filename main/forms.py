@@ -15,4 +15,4 @@ class CreateTenant(forms.ModelForm):
 class CreateRentRecord(forms.ModelForm):
     class Meta:
         model = RentRecord
-        fields = ['amount_paid', 'confirmatin_code']
+        fields = ['amount_paid', 'confirmation_code']

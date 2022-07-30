@@ -24,4 +24,4 @@ class RentRecord(models.Model):
     amount_paid = models.IntegerField()
     payment_date = models.DateTimeField(auto_now_add=True)
     balance = models.IntegerField()
-    confirmatin_code = models.CharField(max_length=50)
+    confirmation_code = models.CharField(max_length=50)
