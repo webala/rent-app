@@ -14,7 +14,7 @@
         </div>
     </nav>
 
-    <div class="grid grid-cols-2 gap-10 houses sm:flex sm:flex-wrap sm:flex-row w-full">
+    <div class="grid grid-cols-2 gap-10 houses sm:flex sm:flex-wrap sm:flex-row w-full justify-between mt-16 p-10">
         {% for house in houses %}
         <a href="/dash/house/{{house.id}}" class="w-5/6 sm:w-1/4">
             <div class="rounded-lg bg-slate-800 flex flex-col items-center justify-center group house cursor-pointer">

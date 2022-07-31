@@ -80,13 +80,11 @@ def house_view(request, house_id):
 
 
 def house_rent_records(request, house_id):
-
-    rent_records = RentRecord.objects.all()
+    house = House.objects.get(id=house_id)
+    rent_records = RentRecord.objects.filter(house=house)
     #A post request can be sent to this view to create a rent record
     if request.method == 'POST':
         create_rent_record_form = CreateRentRecord(request.POST)
-        house = House.objects.get(id=house_id)
-        rent = house.rent
         if create_rent_record_form.is_valid():
             obj = create_rent_record_form.save(commit=False)
             amount_paid = create_rent_record_form.cleaned_data['amount_paid']
